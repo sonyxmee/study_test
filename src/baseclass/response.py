@@ -19,6 +19,8 @@ class Response:
     def validate(self, schema):
         if isinstance(self.response_json, list):
             for item in self.response_json:
-                validate(item, schema)
+                schema.parse_obj(item)
+                # validate(item, schema)
         else:
-            validate(self.response_json, schema)
+            schema.parse_obj(self.response_json)
+            # validate(self.response_json, schema)
