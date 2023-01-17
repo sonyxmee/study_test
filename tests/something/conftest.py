@@ -3,7 +3,9 @@ from random import randrange
 
 
 def _calculate(a, b):
-    return a + b
+    if isinstance(a, int) and isinstance(b, int):
+        return a + b
+    return None
 
 
 # тк в фикстуру нельзя передать параметры, то можно создать еще одну функцию и с пом. нее выполнить необходимое
@@ -16,6 +18,7 @@ def calculate():
 пример Setup and Teardown
 используется при коннекте с БД или при создании юзера
 """
+
 
 @pytest.fixture
 def generate_number():
