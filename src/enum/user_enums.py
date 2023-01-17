@@ -9,6 +9,8 @@ class GenderEnum(Enum):
 class StatusEnum(Enum):
     active = 'active'
     inactive = 'inactive'
+    delete = 'delete'
+    banned = 'banned'
 
 
 class UserErrorEnum(Enum):

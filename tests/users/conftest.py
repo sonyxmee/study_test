@@ -1,6 +1,7 @@
 import pytest
 import requests
 from configurations import URL
+from src.generators.player import Player
 
 """
     scope='function'
@@ -21,3 +22,7 @@ def get_users():
 
 
 # value of function save in temp -> test_function(temp)
+
+@pytest.fixture
+def get_player():
+    return Player()
