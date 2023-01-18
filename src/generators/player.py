@@ -1,10 +1,11 @@
 from src.enum.user_enums import StatusEnum
 from src.generators.player_localize import PlayerLocalize
+from src.baseclass.builder import Builder
 
 
-class Player:
+class Player(Builder):
     def __init__(self):
-        self.obj = {}
+        super().__init__()
         self.reset()
 
     def set_status(self, status=StatusEnum.active.value):
@@ -33,13 +34,10 @@ class Player:
         self.set_localize()
         return self
 
-    def generator_localize(self, generator):
+    def update_localize(self, generator):
         self.obj['localize'] = {
             'en': generator.build()
         }
         return self
-
-    def build(self):
-        return self.obj
 
 # print(Player().set_balance(150).build())
