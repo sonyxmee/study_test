@@ -1,4 +1,5 @@
 from enum import Enum
+from src.baseclass.pyenum import PyEnum
 
 
 class GenderEnum(Enum):
@@ -6,7 +7,7 @@ class GenderEnum(Enum):
     male = 'male'
 
 
-class StatusEnum(Enum):
+class StatusEnum(PyEnum):
     active = 'active'
     inactive = 'inactive'
     delete = 'delete'

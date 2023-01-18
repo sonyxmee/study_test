@@ -5,6 +5,7 @@ from configurations import URL
 from src.baseclass.response import Response
 from src.generators.player_localize import PlayerLocalize
 from src.pydantic_schemas.user import User
+from src.enum.user_enums import StatusEnum
 
 
 @pytest.mark.skip
@@ -14,10 +15,7 @@ def test_request_post(get_users):
 
 
 @pytest.mark.parametrize('status', [
-    'active',
-    'inactive',
-    'bunned',
-    'delete'
+    *StatusEnum.get_status_list()
 ])
 def test_set_status_player(get_player, status):
     print(get_player.set_status(status).build())
