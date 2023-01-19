@@ -8,12 +8,14 @@ from src.pydantic_schemas.user import User
 from src.enum.user_enums import StatusEnum
 
 
+@pytest.mark.development
 @pytest.mark.skip
 def test_request_post(get_users):
     response = Response(get_users)
     response.assert_status_code(200).validate(User)
 
 
+@pytest.mark.development
 @pytest.mark.parametrize('status', [
     *StatusEnum.get_status_list()
 ])
@@ -21,6 +23,7 @@ def test_set_status_player(get_player, status):
     print(get_player.set_status(status).build())
 
 
+@pytest.mark.development
 @pytest.mark.parametrize('value', [
     'account_status',
     'balance',
